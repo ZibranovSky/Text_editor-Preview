@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+	<meta name="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- TITLE -->
+    <title>Text Editor</title>
+
+    <!-- Bootstrap -->
+  
+      <link href="vendor/css/bootstrap/bootstrap.css" rel="stylesheet">
+
+      <!-- Icon & fonts -->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- tema css -->
+    <link href="css/tampilan.css" rel="stylesheet">
+
+	 </head>
+	 <body>
+	 	<nav class="navbar navbar-default navbar-fixed-top navbar-custom  ">
+      <div class="container">
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">navigation</span> Menu <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand">TEXT EDITOR 1.0 </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+ 	<!-- OPEN MODAL -->
+            <li>
+              <a href="#tentang" data-toggle="modal" data-target="#exampleModalCenter">Tentang</a>
+            </li>
+      <!-- END OPEN MODAL -->
+          </ul>
+        </div>
+
+      </div>
+
+    </nav>	
+
+    <!-- MODAL -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Tentang aplikasi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <strong>Text Editor 1.0</strong><br>
+       <p>Text Editor 1.0 adalah aplikasi yang digunakan untuk mengedit dan menjalankan program html dalam aplikasi.</p><br>
+       <p>Aplikasi ini masih dalam uji coba dan masih banyak fitur yang harus ditambahkan.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+      </div>
+       
+    </div>
+  </div>
+</div>
+    <!-- END MODAL --><br>
+
+<!-- TEXTAREA -->
+<section>
+<div class="page-wrapper">
+	<div class="row">
+		<div class="container">
+			<div class="jumbotron">
+				<textarea name="sourceCode" id="sourceCode" style="height: 400px;, text-align: left;">
+					<!DOCTYPE html>
+					<html>
+					<head>
+						<title></title>
+					</head>
+					<body>
+					
+					</body>
+					</html>
+					</textarea>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+<!-- IFRAME -->
+
+<div class="page-wrapper">
+	<div class="row">
+		<div class="container">
+			<div class="jumbotron">
+				<button class="btn btn-success" onclick="runCode();" type="button">Jalankan Kode!</button>
+				<iframe name="targetCode"  id="targetCode" style="width: 100%; height: 400px; "></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function runCode() {
+var content = document.getElementById('sourceCode').value;
+var iframe = document.getElementById('targetCode');
+iframe = (iframe.contentWindow)?iframe.contentWindow:(iframe.contentDocument)? iframe.contentDocument.document: 
+iframe.contentDocument;
+
+iframe.document.open();
+iframe.document.write(content);
+iframe.document.close();
+return false;
+}
+runCode();
+</script>
+
+
+
+     <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!--include-->
+    <script src="vendor/css/js/bootstrap.min.js"></script>
+</body>
+</html>
